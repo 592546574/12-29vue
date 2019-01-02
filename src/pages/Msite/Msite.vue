@@ -6,11 +6,11 @@
         <span>
           <a href="/msite" class="logo">网易严选</a>
         </span>
-          <input type="text" placeholder="搜索商品，共19918款好物" class="field">
-          <button class="btn">登陆</button>
+          <input type="text" placeholder="搜索商品，共19918款好物" class="field" @click="$router.push(`/search`)">
+          <button class="btn" @click="$router.push(`/login`)">登陆</button>
         </div>
       <div class="header-title">
-        <div class="list">
+        <div class="wrapper">
           <ul class="mask">
             <li class="active">
               <a href="###">推荐</a>
@@ -53,31 +53,9 @@
       <div class="msite_nav">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/1.jpg" alt="logo">
+            <div class="swiper-slide" v-for="(focus,index) in focusList" :key="index">
+              <img :src="focus.picUrl">
             </div>
-            <div class="swiper-slide">
-              <img src="./images/2.jpg" alt="logo">
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/3.jpg" alt="logo">
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/4.jpg" alt="logo">
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/5.jpg" alt="logo">
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/6.jpg" alt="logo">
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/7.jpg" alt="logo">
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/8.jpg" alt="logo">
-            </div>
-
           </div>
           <!-- 如果需要分页器 -->
           <div class="swiper-pagination"></div>
@@ -85,22 +63,10 @@
       </div>
       <div class="msite_title">
         <ul class="title_l">
-          <li class="item">
+          <li class="item" v-for="(policy,index) in policyDescList" :key="index">
             <a href="###">
-              <i class="u-icon"></i>
-              <span class="text">网易自营品牌</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="###">
-              <i class="u-icon"></i>
-              <span class="text">30天无忧退货</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="###">
-              <i class="u-icon"></i>
-              <span class="text">48小时快速退款</span>
+              <i class="u-icon u-icon-servicePolicy-index"></i>
+              <span class="text">{{policy.desc}}</span>
             </a>
           </li>
         </ul>
@@ -109,65 +75,11 @@
       <div class="content">
         <div class="content_list">
           <div class="list_text">
-            <a href="###" class="list-a">
+            <a href="king.schemeUrl" class="list-a" v-for="(king,index) in kingKongList" :key="index">
               <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png" alt="">
+                <img :src="king.picUrl" alt="">
               </div>
-              <div class="txt">居家</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/46d33b9a9fbb659fcbac37ec58d51e62.png" alt="">
-              </div>
-              <div class="txt">鞋包配饰</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/31831ada59dc10319cba195620ed9ed0.png" alt="">
-              </div>
-              <div class="txt">服装</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/45833c71d4b0d0de0755a20f893fa25f.png" alt="">
-              </div>
-              <div class="txt">电器</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/793bca13bb931475ea7f0c00299362bb.png" alt="">
-              </div>
-              <div class="txt">洗护</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/15e364ca93313bbd6e87dfcba7ae7b74.png" alt="">
-              </div>
-              <div class="txt">饮食</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/fc3e359da08577228354da61ea912c99.png" alt="">
-              </div>
-              <div class="txt">餐厨</div>
-            </a>
-            <a href="###" class="list-a">
-            <div class="img">
-              <img src="http://yanxuan.nosdn.127.net/2fde77529e90a26427d1c02faa3bfbf6.png" alt="">
-            </div>
-            <div class="txt">婴童</div>
-          </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/97eb6fd2c7ea76a3a42b9dafa3bd6543.png" alt="">
-              </div>
-              <div class="txt">文体</div>
-            </a>
-            <a href="###" class="list-a">
-              <div class="img">
-                <img src="http://yanxuan.nosdn.127.net/db5e2ce8c66f7db3f4282ecb24a64236.png" alt="">
-              </div>
-              <div class="txt">超级会员</div>
+              <div class="txt">{{king.text}}</div>
             </a>
           </div>
         </div>
@@ -186,39 +98,20 @@
               </div>
             </a>
             <div class="right">
-              <div class="right1">
+              <div class="right1" v-for="(activ,index) in indexActivityModule" :key="index">
                 <a href="###" class="m-a" style=" background-size: 100% 100%;">
                   <div class="picWrap">
                     <div class="pic_loade">
-                      <img src="http://yanxuan.nosdn.127.net/7dd153f648f9ffb70384b5868b132ed1.png" alt="">
+                      <img :src="activ.picUrl">
                     </div>
                     <div class="count">
-                      <div class="line1">￥217</div>
-                      <div class="lin2">￥239</div>
+                      <div class="line1">￥{{activ.activityPrice}}</div>
+                      <div class="lin2">￥{{activ.originPrice}}</div>
                     </div>
                   </div>
                   <div class="cnt">
-                    <div class="title">福利社</div>
-                    <div class="subTitle">今日特价</div>
-                  </div>
-                  <div></div>
-                </a>
-              </div>
-              <div class="right2">
-                <a href="###" class="m-a">
-                  <div class="picWrap">
-                    <div class="pic_loade">
-                      <img src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png" alt="">
-                    </div>
-                    <div class="count">
-                      <div class="line1">￥1</div>
-                      <div class="lin2">￥9</div>
-                    </div>
-                  </div>
-                  <div class="cnt">
-                    <div class="title">新人拼团</div>
-                    <div class="subTitle"></div>
-                    <div class="tag">1元起包邮</div>
+                    <div class="title">{{activ.title}}</div>
+                    <div class="subTitle">{{activ.subTitle}}</div>
                   </div>
                   <div></div>
                 </a>
@@ -231,49 +124,24 @@
           <div class="MyMore">
             <div class="left">品牌制造商直供</div>
             <a href="###" class="right">
-              <span>更多</span>
+              <span>更多></span>
               <i class="icon u-icon u-icon-index-titleArrow"></i>
             </a>
           </div>
           <ul class="list">
-            <a href="###" class="item">
+            <a href="###" class="item" :style="`background-image:url(${list.picUrl});background-size:100% 100%;`"
+               v-for="(list,index) in tagList" :key="index">
               <div class="list-item">
-                <h4 class="title">CK制造商</h4>
+                <h4 class="title">{{list.name}}</h4>
                 <div>
-                  <span class="price">...</span>
-                  <i class="newIcon">上新</i>
-                </div>
-              </div>
-            </a>
-            <a href="###" class="item">
-              <div class="list-item">
-                <h4 class="title">CK制造商</h4>
-                <div>
-                  <span class="price">...</span>
-                  <i class="newIcon">上新</i>
-                </div>
-              </div>
-            </a>
-            <a href="###" class="item">
-              <div class="list-item">
-                <h4 class="title">CK制造商</h4>
-                <div>
-                  <span class="price">...</span>
-                  <i class="newIcon">上新</i>
-                </div>
-              </div>
-            </a>
-            <a href="###" class="item">
-              <div class="list-item">
-                <h4 class="title">CK制造商</h4>
-                <div>
-                  <span class="price">...</span>
-                  <i class="newIcon">上新</i>
+                  <span class="price">{{list.floorPrice}}元起</span>
+                  <i class="newIcon" v-if="list.newOnShelf">上新</i>
                 </div>
               </div>
             </a>
           </ul>
         </div>
+        <div class="liner"></div>
       </div>
     </header>
   </div>
@@ -282,21 +150,52 @@
 
 <script>
   import Swiper from 'swiper'
+  import BScroll from 'better-scroll'
   import {mapState} from 'vuex'
   import 'swiper/dist/css/swiper.min.css'
   export default {
-    computed:{
-      ...mapState(['tagList'])
+    data(){
+      return{
+        scrollX:true,
+        click:true
+      }
     },
-    mounted (){
-      new Swiper ('.swiper-container', {
-        loop: true, // 循环模式选项
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination',
-        }
+    computed:{
+      ...mapState([
+        'tagList',
+        'focusList',
+        'policyDescList',
+        'kingKongList',
+        'indexActivityModule'
+      ])
+    },
+    watch:{
+      focusList(){
+        this.$nextTick(() =>{
+          new Swiper ('.swiper-container', {
+            autoplay:true,
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              el: '.swiper-pagination',
+            }
+          })
       })
-     this.$store.dispatch(`getTagList`)
+    }
+  },
+    mounted (){
+      this.$nextTick(()=>{
+        new BScroll('.wrapper',{
+          scrollX: true,
+          click: true
+        })
+      })
+
+        this.$store.dispatch(`getTagList`)
+      this.$store.dispatch(`getFocusList`)
+      this.$store.dispatch(`getPolicyDescList`)
+      this.$store.dispatch(`getKingKongList`)
+      this.$store.dispatch(`getIndexActivityModule`)
     }
   }
 </script>
@@ -310,7 +209,6 @@
       height 45px
       text-align center
       line-height 40px
-      background-color yellowgreen
       .logo
         padding-right 20px
       .field
@@ -326,7 +224,7 @@
 
     .header-title
       width 100%
-      .list
+      .wrapper
         box-sizing border-box
         width 100%
         .mask
@@ -368,25 +266,35 @@
            width 100%
            height 100%
     .msite_title
-      background #ffeddb
+
       .title_l
         width 375px
         height 35px
         display flex
         align-items center
-        padding 0 20px
+        padding 0 10px
         zoom 1
         font-size 12px
         .item
           float left
           flex 1
           a
-           color #b4282d
-
-
+            cursor pointer
+            vertical-align middle
+            display inline-block
+            color #b4282d
+            .text
+              display inline-block
+              text-align center
+              line-height 35px
+            .u-icon
+              display inline-block
+              width 16px
+              height 16px
+              background-image url("http://yanxuan.nosdn.127.net/cae45612b8aae577d8bd73338e2fc02c.png")
+              background-size 16px 16px
     .content
       .content_list
-        background #ffeddb
         width 375px
         height 201px
         .list_text
@@ -657,6 +565,7 @@
                  text-overflow ellipsis
                .price
                  color #7f7f7f
+                 font-size 12px
                .newIcon
                  width 35px
                  height 16px
