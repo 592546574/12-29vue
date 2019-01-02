@@ -1,7 +1,7 @@
 //url路径data参数请求方式metnod  type也可以
 import axios from 'axios'
 export default function ajax(url,data={},method = 'GET') {
-   return new Promise(function (resolve,reject) {
+   return new Promise((resolve,reject) =>{
       let promise
      if (method==='GET'){
         promise = axios.get(url,{params:data})

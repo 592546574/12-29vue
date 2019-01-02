@@ -282,8 +282,12 @@
 
 <script>
   import Swiper from 'swiper'
+  import {mapState} from 'vuex'
   import 'swiper/dist/css/swiper.min.css'
   export default {
+    computed:{
+      ...mapState(['tagList'])
+    },
     mounted (){
       new Swiper ('.swiper-container', {
         loop: true, // 循环模式选项
@@ -292,6 +296,7 @@
           el: '.swiper-pagination',
         }
       })
+     this.$store.dispatch(`getTagList`)
     }
   }
 </script>
