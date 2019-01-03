@@ -4,15 +4,23 @@ import {
   reqfocusList,
   reqPolicyDescList,
   reqKingKongList,
-  reqIndexActivityModule
+  reqIndexActivityModule,
+  reqCateList,
+  reqCategory,
+  reqCategoryL1List,
+  reqCategoryL2List
 } from '../api'
 import {
   RECEIVE_TAGLIST,
   RECEIVE_FOCUSLIST,
   RECEIVE_POLICYDESCLIST,
   RECEIVE_KINGKONGLIST,
-  RECEIVE_INDEXACTIVITYMODULE
-} from  './mutation-type'
+  RECEIVE_INDEXACTIVITYMODULE,
+  RECEIVE_CATELIST,
+  RECEIVE_CATEGORY,
+  RECEIVE_CATEGORYL1LIST,
+  RECEIVE_CATEGORYL2LIST
+} from './mutation-type'
 export default {
   async getTagList({commit}){
     const result = await reqTagList()
@@ -50,6 +58,36 @@ export default {
       const indexActivityModule = result.data
       console.log(indexActivityModule)
       commit(RECEIVE_INDEXACTIVITYMODULE,{indexActivityModule})
+    }
+  },
+  async getCateList({commit}){
+    const result = await reqCateList()
+    if (result.code === 0 ){
+      const cateList = result.data
+      console.log(cateList)
+      commit(RECEIVE_CATELIST,{cateList})
+    }
+  },
+  async getCategory({commit}){
+    const result = await reqCategory()
+    if (result.code === 0 ){
+      const category = result.data
+      console.log(category)
+      commit(RECEIVE_CATEGORY,{category})
+    }
+  },
+  async getCategoryL1List({commit}){
+    const result = await reqCategoryL1List()
+    if (result.code === 0 ){
+      const categoryL1List = result.data
+      commit(RECEIVE_CATEGORYL1LIST,{categoryL1List})
+    }
+  },
+  async getCategoryL2List({commit}){
+    const result = await reqCategoryL2List()
+    if (result.code === 0 ){
+      const categoryL2List = result.data
+      commit(RECEIVE_CATEGORYL2LIST,{categoryL2List})
     }
   },
 }

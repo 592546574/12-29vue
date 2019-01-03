@@ -4,7 +4,11 @@ import {
   RECEIVE_FOCUSLIST,
   RECEIVE_POLICYDESCLIST,
   RECEIVE_KINGKONGLIST,
-  RECEIVE_INDEXACTIVITYMODULE
+  RECEIVE_INDEXACTIVITYMODULE,
+  RECEIVE_CATELIST,
+  RECEIVE_CATEGORY,
+  RECEIVE_CATEGORYL1LIST,
+  RECEIVE_CATEGORYL2LIST
 } from './mutation-type'
 export default {
   [RECEIVE_TAGLIST](state,{tagList}){
@@ -21,5 +25,17 @@ export default {
   },
   [RECEIVE_INDEXACTIVITYMODULE](state,{indexActivityModule}){
     state.indexActivityModule = indexActivityModule
+  },
+  [RECEIVE_CATELIST](state,{cateList}){
+    state.cateList = cateList
+  },
+  [RECEIVE_CATEGORY](state,{category}){
+    state.category = category
+  },
+  [RECEIVE_CATEGORYL1LIST](state,{categoryL1List}){
+    state.categoryL1List = categoryL1List
+  },
+  [RECEIVE_CATEGORYL2LIST](state,{categoryL2List}){
+    state.categoryL2List = categoryL2List
   }
 }

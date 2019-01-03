@@ -4,5 +4,9 @@ export default {
   tagList:[],   //更多列表
   policyDescList:[], //小列表
   kingKongList:[],   //分类数组
-  indexActivityModule:[]  //特价列表
+  indexActivityModule:[],  //特价列表
+  cateList:[],   //头部列表
+  category:[],    //第二页右侧
+  categoryL1List:[],   //第二页右侧列表
+  categoryL2List:[]
 }

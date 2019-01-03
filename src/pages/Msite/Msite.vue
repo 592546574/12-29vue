@@ -1,49 +1,22 @@
 <template>
-  <div>
+  <div style="overflow-x:hidden">
     <!--//头部-->
     <header>
       <div class="MyHeader">
         <span>
           <a href="/msite" class="logo">网易严选</a>
         </span>
-          <input type="text" placeholder="搜索商品，共19918款好物" class="field" @click="$router.push(`/search`)">
-          <button class="btn" @click="$router.push(`/login`)">登陆</button>
-        </div>
+        <input type="text" placeholder="搜索商品，共19918款好物" class="field" @click="$router.push(`/search`)">
+        <button class="btn" @click="$router.push(`/login`)">登陆</button>
+      </div>
       <div class="header-title">
         <div class="wrapper">
           <ul class="mask">
             <li class="active">
               <a href="###">推荐</a>
             </li>
-            <li>
-              <a href="###">居家</a>
-            </li>
-            <li>
-              <a href="###">鞋包服饰</a>
-            </li>
-            <li>
-              <a href="###">服装</a>
-            </li>
-            <li>
-              <a href="###">电器</a>
-            </li>
-            <li>
-              <a href="###">洗护</a>
-            </li>
-            <li>
-              <a href="###">饮食</a>
-            </li>
-            <li>
-              <a href="###">餐厨</a>
-            </li>
-            <li>
-              <a href="###">婴童</a>
-            </li>
-            <li>
-              <a href="###">文体</a>
-            </li>
-            <li>
-              <a href="###">超级会员</a>
+            <li v-for="(cate,index) in cateList" :key="index">
+              <a href="###">{{cate.name}}</a>
             </li>
             <span class="geeen"></span>
           </ul>
@@ -166,7 +139,8 @@
         'focusList',
         'policyDescList',
         'kingKongList',
-        'indexActivityModule'
+        'indexActivityModule',
+        'cateList'
       ])
     },
     watch:{
@@ -184,18 +158,17 @@
     }
   },
     mounted (){
-      this.$nextTick(()=>{
         new BScroll('.wrapper',{
           scrollX: true,
           click: true
-        })
-      })
+      }),
 
         this.$store.dispatch(`getTagList`)
-      this.$store.dispatch(`getFocusList`)
-      this.$store.dispatch(`getPolicyDescList`)
-      this.$store.dispatch(`getKingKongList`)
-      this.$store.dispatch(`getIndexActivityModule`)
+        this.$store.dispatch(`getFocusList`)
+        this.$store.dispatch(`getPolicyDescList`)
+        this.$store.dispatch(`getKingKongList`)
+        this.$store.dispatch(`getIndexActivityModule`)
+        this.$store.dispatch(`getCateList`)
     }
   }
 </script>
@@ -205,35 +178,40 @@
   .header
      width 100%
     .MyHeader
+      background #fff
+      position fixed
+      top 0
       width 100%
       height 45px
       text-align center
       line-height 40px
+      z-index 10
       .logo
         padding-right 20px
       .field
          background-color #eee
-         height 22px
+         height 30px
       .btn
          margin-left 10px
          color #b4282d
          border-radius 5px
          border 1px solid #b4282d
          background-color #fff
-
-
     .header-title
+      margin-top 45px
       width 100%
       .wrapper
         box-sizing border-box
         width 100%
+        position relative
+        height 30px
         .mask
-          position relative
-          float left
-          overflow hidden
-          width 100%
+          position absolute
+          top 0
+          width 640px
           height 30px
           li
+           float left
            display inline-block
            height 25px
            line-height 25px
