@@ -244,7 +244,6 @@
            width 100%
            height 100%
     .msite_title
-
       .title_l
         width 375px
         height 35px

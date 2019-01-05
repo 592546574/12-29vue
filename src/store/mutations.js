@@ -8,7 +8,8 @@ import {
   RECEIVE_CATELIST,
   RECEIVE_CATEGORY,
   RECEIVE_CATEGORYL1LIST,
-  RECEIVE_CATEGORYL2LIST
+  RECEIVE_CATEGORYL2LIST,
+  RECEIVE_GETTABS
 } from './mutation-type'
 export default {
   [RECEIVE_TAGLIST](state,{tagList}){
@@ -37,5 +38,8 @@ export default {
   },
   [RECEIVE_CATEGORYL2LIST](state,{categoryL2List}){
     state.categoryL2List = categoryL2List
+  },
+  [RECEIVE_GETTABS](STATE,{getTabs}){
+    state.getTabs = getTabs
   }
 }

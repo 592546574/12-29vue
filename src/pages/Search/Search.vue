@@ -136,7 +136,7 @@
             .list-item
               text-overflow ellipsis
               font-size 14px
-              line-height 20px
+              line-height 57px
               display block
       .right
         height 600px

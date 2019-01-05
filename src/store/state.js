@@ -8,5 +8,6 @@ export default {
   cateList:[],   //头部列表
   category:[],    //第二页右侧
   categoryL1List:[],   //第二页右侧列表
-  categoryL2List:[]
+  categoryL2List:[],
+  getTabs:[]  //识物列表
 }
