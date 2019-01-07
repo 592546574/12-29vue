@@ -2,7 +2,7 @@
   <div class="content">
     <div class="content-list"  v-for="(item,index) in getTabData2" :key="index">
       <div>
-        <a href="###"  >
+        <a href="###"  v-show="item.type === 7">
           <div class="liner"></div>
           <div class="product">1月4日新品放映室</div>
           <div class="week">
@@ -10,29 +10,8 @@
           </div>
         </a>
         <ul class="list-tab">
-          <li >
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
-          </li>
-          <li>
-            <img src="https://yanxuan.nosdn.127.net/10a2fdb71a012ad31732a483180a68d3.png?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
+          <li v-for="(item,index) in getTabData2" :key="index">
+            <img :src="item.itemUrl" width="100%" height="100%">
           </li>
         </ul>
         <div class="count">

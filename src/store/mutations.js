@@ -57,8 +57,20 @@ export default {
   },
 
   [RECEIVE_GETTABDATATWO](state,{getTabData2}){
-    state.getTabData2 = getTabData2
-
+    //state.getTabData2 = getTabData2
+    //数组扁平化  拿到含有null的所有的包含对象的数组pre原始值
+    let bigArr = getTabData2.result.reduce((pre,curr)=>{
+      curr.itemList.forEach(item=>{
+        if(item){
+          item.type = curr.type
+        }
+      })
+      return pre.concat(curr.itemList)
+    },[])
+    // filter过滤掉数组中的null，得到所有有真实数据的数组
+    state.getTabData2 = bigArr.filter(item =>{
+      return item !== null
+    })
   }
 
 }
