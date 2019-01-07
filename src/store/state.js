@@ -9,5 +9,6 @@ export default {
   category:[],    //第二页右侧
   categoryL1List:[],   //第二页右侧列表
   categoryL2List:[],
-  getTabs:[]  //识物列表
+  getTabs:[],  //识物列表
+  recManual:[]  //推荐列表
 }
