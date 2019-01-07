@@ -10,7 +10,8 @@ import {
   RECEIVE_CATEGORYL1LIST,
   RECEIVE_CATEGORYL2LIST,
   RECEIVE_GETTABS,
-  RECEIVE_RECMANUAL
+  RECEIVE_RECMANUAL,
+  RECEIVE_RECAUTO
 } from './mutation-type'
 export default {
   [RECEIVE_TAGLIST](state,{tagList}){
@@ -45,5 +46,8 @@ export default {
   },
   [RECEIVE_RECMANUAL](state,{recManual}){
     state.recManual = recManual
+  },
+  [RECEIVE_RECAUTO](state,{recAuto}){
+    state.recAuto = recAuto
   }
 }
