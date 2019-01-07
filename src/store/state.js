@@ -12,5 +12,6 @@ export default {
   getTabs:[],  //识物列表
   recManual:[], //推荐列表
   topicHome:[],   //home列表
-  getTabData:[]   //达人列表
+  getTabData:[],   //达人列表
+  getTabData2:[]
 }

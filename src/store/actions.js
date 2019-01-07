@@ -27,7 +27,8 @@ import {
   RECEIVE_GETTABS,
   RECEIVE_RECMANUAL,
   RECEIVE_GETTABDATA,
-  RECEIVE_TOPICHOME
+  RECEIVE_TOPICHOME,
+  RECEIVE_GETTABDATATWO
 } from './mutation-type'
 export default {
   async getTagList({commit}){
@@ -113,10 +114,17 @@ export default {
     }
   },
   async getGetTabData({commit}){
-    const result = await reqGetTabData()
+    const result = await reqGetTabData(4)
     if (result.code === '200' ){
       const getTabData = result.data
       commit(RECEIVE_GETTABDATA,{getTabData})
+    }
+  },
+  async getTabData({commit}){
+    const result = await reqGetTabData(5)
+    if (result.code === '200' ){
+      const getTabData2 = result.data
+      commit(RECEIVE_GETTABDATATWO,{getTabData2})
     }
   },
   async getTopicHome({commit}){

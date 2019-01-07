@@ -12,7 +12,8 @@ import {
   RECEIVE_GETTABS,
   RECEIVE_RECMANUAL,
   RECEIVE_TOPICHOME,
-  RECEIVE_GETTABDATA
+  RECEIVE_GETTABDATA,
+  RECEIVE_GETTABDATATWO
 } from './mutation-type'
 export default {
   [RECEIVE_TAGLIST](state,{tagList}){
@@ -53,5 +54,11 @@ export default {
   },
   [RECEIVE_GETTABDATA](state,{getTabData}){
     state.getTabData = getTabData
+  },
+
+  [RECEIVE_GETTABDATATWO](state,{getTabData2}){
+    state.getTabData2 = getTabData2
+
   }
+
 }
