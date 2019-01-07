@@ -119,7 +119,7 @@ export default {
       commit(RECEIVE_GETTABDATA,{getTabData})
     }
   },
-  async getTopicHomea({commit}){
+  async getTopicHome({commit}){
     const result = await reqTopicHome()
     if (result.code === 0 ){
       const topicHome = result.data

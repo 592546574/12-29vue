@@ -1,6 +1,7 @@
+<!--传参问题要注意因为是对象所以要.getTabData.result代表遍历的是tabdata下面的result数组-->
 <template>
   <div class="content">
-    <div class="content-gent" v-for="(tab,index) in getTabData" :key="index">
+    <div class="content-gent" v-for="(tab,index) in getTabData.result" :key="index">
       <a href="###" class="gent">
         <div class="liner"></div>
         <div class="info">
@@ -41,9 +42,7 @@
   import {mapState} from 'vuex'
   export default {
     computed:{
-      ...mapState({
-        getTabData
-      }),
+      ...mapState(['getTabData']),
     },
     mounted(){
       this.$store.dispatch('getGetTabData')

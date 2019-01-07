@@ -12,4 +12,5 @@ export const reqCategoryL2List = () =>ajax('/categoryL2List')
 export const reqGetTabs = () =>ajax('/getTabs')
 export const reqRecManual = () =>ajax(BASE +'/topic/v1/find/recManual.json')
 export const reqTopicHome =() =>ajax('/topicHome')
-export const reqGetTabData = () =>ajax(BASE +'/topic/v1/find/getTabData.json?page=1&size=5&tabId=4')
+//{page:1,size:5,tabId:4}传参问题要注意，如果是不变的()里面就不需要在传
+export const reqGetTabData = () =>ajax(BASE +'/topic/v1/find/getTabData.json',{page:1,size:5,tabId:4})
