@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <div class="content-list">
-      <a href="###">
+    <div class="content-gent">
+      <a href="###" class="gent">
         <div class="liner"></div>
         <div class="info">
           <div class="list-name">
@@ -17,7 +17,7 @@
             <span>168人看过</span>
           </div>
         </div>
-        <div class="pic">
+        <div class="tpic">
           <img src="https://yanxuan.nosdn.127.net/93986fb79690a05d4c01b7d314cd7b78.jpg?imageView&quality=65&thumbnail=272y272" width="100%" height="100%">
         </div>
       </a>
@@ -45,12 +45,15 @@
     display flex
     flex-flow nowrap
     justify-content space-around
-    .content-list
+    .content-gent
+      height 168px
       background #fff
       margin 5px 0
       box-sizing border-box
       padding 5px 15px
       width 100%
+      .gent
+        height 170px
       .info
         width 200px
         height 136px
@@ -90,12 +93,12 @@
             display inline-block
 
 
-      .pic
+      .tpic
         height 136px
         width 136px
         position relative
         right -210px
-        top -130px
+        top -135px
         img
           overflow hidden
           display inline-block

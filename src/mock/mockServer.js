@@ -2,6 +2,7 @@ import Mock from 'mockjs'
 import category from './category'
 import shouye_data from './shouye_data'
 import fenlei_zhuanqu from './fenlei_zhuanqu'
+import topicHome from './topicHome'
 import cateList from './cateList'
 Mock.mock("/tagList",{code:0,data:shouye_data.tagList});
 Mock.mock("/focusList",{code:0,data:shouye_data.focusList});
@@ -12,6 +13,7 @@ Mock.mock("/categoryL1List",{code:0,data:fenlei_zhuanqu.categoryL1List});
 Mock.mock("/categoryL2List",{code:0,data:fenlei_zhuanqu.categoryL2List});
 Mock.mock("/cateList",{code:0,data:cateList});
 Mock.mock("/category",{code:0,data:category});
+Mock.mock("/topicHome",{code:0,data:topicHome});
 
 
 

@@ -11,7 +11,8 @@ import {
   reqCategoryL2List,
   reqGetTabs,
   reqRecManual,
-  reqRecAuto
+  reqRecAuto,
+  reqTopicHome
 } from '../api'
 import {
   RECEIVE_TAGLIST,
@@ -25,7 +26,8 @@ import {
   RECEIVE_CATEGORYL2LIST,
   RECEIVE_GETTABS,
   RECEIVE_RECMANUAL,
-  RECEIVE_RECAUTO
+  RECEIVE_RECAUTO,
+  RECEIVE_TOPICHOME
 } from './mutation-type'
 export default {
   async getTagList({commit}){
@@ -115,6 +117,13 @@ export default {
     if (result.code === '200' ){
       const RecAuto = result.data
       commit(RECEIVE_RECAUTO,{RecAuto})
+    }
+  },
+  async getTopicHome({commit}){
+    const result = await reqTopicHome()
+    if (result.code === 0 ){
+      const topicHome = result.data
+      commit(RECEIVE_TOPICHOME,{topicHome})
     }
   },
 }
