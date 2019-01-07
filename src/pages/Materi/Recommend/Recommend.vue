@@ -187,7 +187,7 @@
           color #999
           font-size 12px
           line-height 20px
-          margin-top 10px
+          margin-top 40px
           margin-bottom 5px
           .icon
             background-size 14px

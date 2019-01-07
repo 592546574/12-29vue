@@ -11,8 +11,8 @@ import {
   RECEIVE_CATEGORYL2LIST,
   RECEIVE_GETTABS,
   RECEIVE_RECMANUAL,
-  RECEIVE_RECAUTO,
-  RECEIVE_TOPICHOME
+  RECEIVE_TOPICHOME,
+  RECEIVE_GETTABDATA
 } from './mutation-type'
 export default {
   [RECEIVE_TAGLIST](state,{tagList}){
@@ -48,10 +48,10 @@ export default {
   [RECEIVE_RECMANUAL](state,{recManual}){
     state.recManual = recManual
   },
-  [RECEIVE_RECAUTO](state,{recAuto}){
-    state.recAuto = recAuto
-  },
   [RECEIVE_TOPICHOME](state,{topicHome}){
     state.topicHome = topicHome
+  },
+  [RECEIVE_GETTABDATA](state,{getTabData}){
+    state.getTabData = getTabData
   }
 }

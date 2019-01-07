@@ -11,6 +11,6 @@ export default {
   categoryL2List:[],
   getTabs:[],  //识物列表
   recManual:[], //推荐列表
-  recAuto:[],  //达人列表
-  topicHome:[]   //home列表
+  topicHome:[],   //home列表
+  getTabData:[]   //达人列表
 }
