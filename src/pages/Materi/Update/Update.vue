@@ -1,17 +1,20 @@
+<!--s数组得遍历方法-->
 <template>
   <div class="content">
     <div class="content-list"  v-for="(item,index) in getTabData2" :key="index">
-      <div>
-        <a href="###"  v-show="item.type === 7">
+      <div v-show="item.type === 7">
+        <a href="###"  >
           <div class="liner"></div>
-          <div class="product">1月4日新品放映室</div>
+          <div class="product">{{item.title}}</div>
           <div class="week">
-            本周严选带来了火锅汤底和颜值锅具，让你在家也能组起火锅趴，还有被时尚杂志pick的明星款耳饰和男式夹克，年底聚会扎推，备好红火美食和新年战袍，老友相见才能不输阵哦~
+            {{item.subTitle}}
           </div>
         </a>
         <ul class="list-tab">
-          <li v-for="(item,index) in getTabData2" :key="index">
-            <img :src="item.itemUrl" width="100%" height="100%">
+          <li v-for="(item2,index) in item.itemList" :key="index" v-if="item2">
+            <!--两种方法都可以实现-->
+            <!--<img :src="item2 ?item2.itemUrl : ''" width="100%" height="100%">-->
+            <img :src="item2.itemUrl" width="100%" height="100%">
           </li>
         </ul>
         <div class="count">
