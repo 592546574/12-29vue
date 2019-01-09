@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+  /*如何在jquery中动态获取后台得json格式数据
+  * 1.发后台请求
+  * 2.直接html中获取
+  * 首先html页面写好一套静态页面布局然后用jquery中得$.getJSON()获取
+  * 然后出来ul是空得其他任何样式都要动态获取
+  * */
+  //data代表的data文件夹名字../data/index.json代表文件里得数据：这样为先获取到后台数据
+  $.getJSON("../data/index.json", function (data) {
+    //forEach遍历item代表json文件里得大的数组index代表下标
+    data.forEach((item, index) => {
+      //liNode代表获取得是li   li代表单个得liclass代表类名为了做css样式
+      // "navlist"由于class类名是双引号所以前后还要加上其他字符标签/或者单引号都可以
+      const liNode = $("<li class=\"navlist\"></li>");//动态创建li
+      //ul里面布局静态有什么样式都要获取+ item.serviceIndex +代表拼串
+      const aNode = $("< a href=' ' class=\"navName\">"+ item.serviceIndex +"</ a>");
+      const iNode1 = $("<img src='./image/youjiantou.png'>");//动态创建右边小箭头
+      const iNode2 = $("<i class=\"iconfont icon-zuojiantou\"></i>");//动态创建左边小箭头
+      //由于点击左侧右侧也有数据需要动态创建一个空的ul
+      const ulNode = $("<ul></ul>"); //动态创建里面嵌套的ul
+      //把动态创建得a i添加到他的父元素li上边
+      liNode.append(iNode1);
+      liNode.append(iNode2);
+      liNode.append(aNode);
+      //第二个ul
+      item.serviceType.forEach((i, index) => {
+        const ul_liNode = $("<li></li>");
+        const ul_aNode = $("< a href='###' ></ a>");
+        //添加动态数据a--li--ul逐层添加
+        ul_aNode.text(i);
+        ulNode.append(ul_liNode);
+        ul_liNode.append(ul_aNode)
+      });
+      //代表上边ul上边容器得class类名将动态li添加到ul上边
+      $(".list>ul").append(liNode);
+      liNode.append(ulNode)
+    });
+
+    $.getJSON("../data/index.json", function (data) {
+      data.forEach((item, index) => {
+        const divNode1 = $("<div class='divNode1'></div>");
+        $(document.body).append(divNode1);
+        const divNode2 = $("<div class='divNode2'></div>");
+        divNode1.append(divNode2);
+
+        const divNode2_1 = $("<div class='divNode2_1'></div>");
+        const divNode2_1_1 = $("<div class='divNode2_1_1'></div>");
+        const iNode2_1_1 = $("<i class='iNode2_1_1'>" + item.serviceIndex + "</i>");
+        divNode2_1_1.append(iNode2_1_1);
+        divNode2_1.append(divNode2_1_1);
+
+        const divNode2_1_2 = $("<div class='divNode2_1_2'></div>");
+        const ulNode2_1_2 = $("<ul class='ulNode2_1_2'></ul>");
+        item.serviceType.forEach((i, index) => {
+          const ul_liNode2_1_2 = $("<li class='ul_liNode2_1_2'></li>");
+          const ul_aNode2_1_2 = $("< a href='###' class='ul_aNode2_1_2'></ a>");
+          ul_aNode2_1_2.text(i);
+          ulNode2_1_2.append(ul_liNode2_1_2);
+          ul_liNode2_1_2.append(ul_aNode2_1_2)
+        })
+      })
+    })
+  }
+
+</script>
+</body>
+</html>
